@@ -5,6 +5,10 @@ const nextConfig = {
     locales: ["en", "pt-br"],
     defaultLocale: "pt-br",
   },
+  compiler: {
+    styledComponents: true,
+  },
+
 };
 
 module.exports = nextConfig;
