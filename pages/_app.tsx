@@ -8,12 +8,17 @@ import { NextIntlProvider } from "next-intl";
 import GlobalStyle from "../src/styles/globalStyle";
 import defaultTheme from "../src/themes/default";
 
+//components
+import { Layout } from "../src/components/Layout";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <NextIntlProvider messages={pageProps.messages}>
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyle />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </NextIntlProvider>
   );
