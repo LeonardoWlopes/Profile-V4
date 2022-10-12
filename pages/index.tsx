@@ -5,19 +5,72 @@ import * as S from "../src/styles";
 import { useTranslations } from "next-intl";
 
 //components
-import Head from "next/head";
 import Image from "next/image";
+
+//types
+interface IPageProps {
+  techIcons: {
+    icon: string;
+    alt: string;
+  }[];
+}
 
 //this function is necessary to get the translations in every single page
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const techIcons = [
+    {
+      icon: "/icons/css.svg",
+      alt: "css",
+    },
+    {
+      icon: "/icons/git.svg",
+      alt: "git",
+    },
+    {
+      icon: "/icons/github.svg",
+      alt: "github",
+    },
+    {
+      icon: "/icons/html.svg",
+      alt: "html",
+    },
+    {
+      icon: "/icons/js.svg",
+      alt: "javascript",
+    },
+    {
+      icon: "/icons/react.svg",
+      alt: "react",
+    },
+    {
+      icon: "/icons/redux.svg",
+      alt: "redux",
+    },
+    {
+      icon: "/icons/sass.svg",
+      alt: "sass",
+    },
+
+    {
+      icon: "/icons/tailwind.svg",
+      alt: "tailwind",
+    },
+
+    {
+      icon: "/icons/vscode.svg",
+      alt: "vscode",
+    },
+  ];
+
   return {
     props: {
       messages: (await import(`../public/locales/${locale}.json`)).default,
+      techIcons,
     },
   };
 };
 
-const Home: NextPage = () => {
+const Home: NextPage<IPageProps> = ({ techIcons }) => {
   const t = useTranslations("home");
 
   return (
@@ -46,6 +99,22 @@ const Home: NextPage = () => {
           </S.ImageContainer>
         </S.ImageContainer>
       </S.IntroductionContainer>
+
+      <S.TechContainer>
+        <S.SectionTitle>{t("tech_title")}</S.SectionTitle>
+
+        <S.SectionSubTitle>{t("tech_subtitle")}</S.SectionSubTitle>
+
+        <S.TechIconsContainer>
+          {techIcons.map(({ icon, alt }) => (
+            <S.TechIcons key={alt}>
+              <Image src={icon} alt={alt} layout={"fill"} />
+            </S.TechIcons>
+          ))}
+        </S.TechIconsContainer>
+      </S.TechContainer>
+
+      
     </S.Container>
   );
 };

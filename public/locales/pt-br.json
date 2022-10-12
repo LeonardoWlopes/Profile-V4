@@ -1,17 +1,5 @@
 {
   "common": {
-    "welcome": "Bem vindo ao",
-    "nextjs": "Next.js",
-    "get_started": "Comece editando o arquivo",
-    "documentation": "Documentação",
-    "learn": "Aprenda",
-    "exemples": "Exemplos",
-    "deploy": "Deploy",
-    "documentation_description": "Encontre informações detalhadas sobre os recursos e a API do Next.js.",
-    "learn_description": "Aprenda sobre Next.js em um curso interativo com testes!",
-    "exemples_description": "Descubra e implante projetos Next.js de exemplo padrão.",
-    "deploy_description": "Suba instantaneamente seu site Next.js em uma URL pública com o Vercel.",
-
     "home": "Home",
     "about": "sobre",
     "tech_stack": "Minhas Tecnologias",
@@ -22,6 +10,10 @@
     "message_01": "Olá 👋,",
     "message_02": "Meu nome é ",
     "message_03": "Leonardo Lopes",
-    "message_04": "E eu faço coisas para WEB."
+    "message_04": "E eu faço coisas para WEB.",
+    "tech_title": "My tech stack",
+    "tech_subtitle": "Technologies I’ve been working with recently",
+    "project_title": "projetos",
+    "project_subtitle": "Things I’ve built so far"
   }
 }

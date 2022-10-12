@@ -7,16 +7,18 @@ export const Container = styled.div`
   //background-color: red;
 `;
 
-export const IntroductionContainer = styled.div`
+export const IntroductionContainer = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   overflow: hidden;
+  margin-bottom: 200px;
 
   ${mediaQuery("TABLET")(css`
     flex-direction: column;
     gap: 32px;
+    margin-bottom: 100px;
   `)}
 `;
 
@@ -109,3 +111,64 @@ export const Me = styled(Image)`
   animation: ${rotate} 5s linear infinite;
   animation-direction: reverse;
 `;
+
+export const TechContainer = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 210px;
+`;
+
+export const SectionTitle = styled.h2`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 55px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: ${({ theme }) => theme.COLORS.DARK_BLUE};
+  margin-bottom: 50px;
+  text-transform: capitalize;
+`;
+
+export const SectionSubTitle = styled.p`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: ${({ theme }) => theme.COLORS.GRAY};
+  margin-bottom: 140px;
+`;
+
+export const TechIconsContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 68px;
+`;
+
+export const TechIcons = styled.div`
+  width: 120px;
+  aspect-ratio: 1/1;
+  position: relative;
+  transition: all 0.2s;
+
+  :hover {
+    width: 125px;
+  }
+
+  ${mediaQuery("TABLET")(css`
+    width: 100px;
+
+    :hover {
+      width: 105px;
+    }
+  `)}
+`;
+
