@@ -1,5 +1,6 @@
 import Image from "next/image";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
+import { mediaQuery } from "./functions";
 
 export const Container = styled.div`
   width: 100%;
@@ -10,12 +11,20 @@ export const IntroductionContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  ${mediaQuery("TABLET")(css`
+    flex-direction: column;
+    gap: 32px;
+  `)}
 `;
 
 export const IntroductionTexts = styled.div`
   display: flex;
   flex-direction: column;
   flex: 0.6;
+  margin-right: 16px;
 `;
 
 export const Introductions = styled.span`
@@ -28,6 +37,14 @@ export const Introductions = styled.span`
   letter-spacing: -1px;
   color: ${({ theme }) => theme.COLORS.DARK_BLUE};
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  ${mediaQuery("LAPTOPS")(css`
+    font-size: 42px;
+  `)}
+
+  ${mediaQuery("MOBILE")(css`
+    font-size: 32px;
+  `)}
 `;
 
 export const ImageContainer = styled.div`
@@ -47,6 +64,14 @@ export const MyName = styled.span`
   background: -webkit-linear-gradient(right, #13b0f5, #e70faa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  ${mediaQuery("LAPTOPS")(css`
+    font-size: 42px;
+  `)}
+
+  ${mediaQuery("MOBILE")(css`
+    font-size: 32px;
+  `)}
 `;
 
 const rotate = keyframes`
@@ -71,6 +96,10 @@ export const ImageFrame = styled.div`
   background: linear-gradient(0deg, #13b0f5 0%, #e70faa 100%);
   animation: ${rotate} 5s linear infinite;
   margin-left: auto;
+
+  ${mediaQuery("MOBILE")(css`
+    max-width: 300px;
+  `)}
 `;
 
 export const Me = styled(Image)`
