@@ -10,6 +10,18 @@
     "documentation_description": "Encontre informações detalhadas sobre os recursos e a API do Next.js.",
     "learn_description": "Aprenda sobre Next.js em um curso interativo com testes!",
     "exemples_description": "Descubra e implante projetos Next.js de exemplo padrão.",
-    "deploy_description": "Suba instantaneamente seu site Next.js em uma URL pública com o Vercel."
+    "deploy_description": "Suba instantaneamente seu site Next.js em uma URL pública com o Vercel.",
+
+    "home": "Home",
+    "about": "sobre",
+    "tech_stack": "Minhas Tecnologias",
+    "projects": "projetos",
+    "contact": "Contato"
+  },
+  "home": {
+    "message_01": "Olá 👋,",
+    "message_02": "Meu nome é ",
+    "message_03": "Leonardo Lopes",
+    "message_04": "E eu faço coisas para WEB."
   }
 }
