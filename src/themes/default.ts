@@ -4,6 +4,7 @@ const defaultTheme = {
     WHITE: "#FFFFFF",
     GRAY: "#666666",
     DARK_BLUE: "#42446E",
+    BLACK: '#000000'
   },
   BREAK_POINTS: {
     MOBILE: "480px",

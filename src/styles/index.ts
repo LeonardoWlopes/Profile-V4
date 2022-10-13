@@ -172,3 +172,15 @@ export const TechIcons = styled.div`
   `)}
 `;
 
+export const ProjectsContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ReposContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+`;

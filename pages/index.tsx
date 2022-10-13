@@ -7,12 +7,20 @@ import { useTranslations } from "next-intl";
 //components
 import Image from "next/image";
 
+//services
+import { useServices } from "../src/services/projects.service";
+import axios from "axios";
+
 //types
+import { IProject } from "../src/interfaces/projects";
+import RepoCard from "../src/components/RepoCard";
+
 interface IPageProps {
   techIcons: {
     icon: string;
     alt: string;
   }[];
+  projects: IProject[];
 }
 
 //this function is necessary to get the translations in every single page
@@ -62,15 +70,29 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     },
   ];
 
+  let projects: IProject[] = [];
+
+  try {
+    const response = await axios.get<IProject[]>(
+      "https://api.github.com/users/LeonardoWlopes/repos"
+    );
+
+    projects = response.data;
+  } catch (error) {
+    console.error("Error on fetch Github repositories", error);
+  }
+
   return {
     props: {
       messages: (await import(`../public/locales/${locale}.json`)).default,
       techIcons,
+      projects,
     },
+    revalidate: 1000 * 60 * 30, //30 minutes
   };
 };
 
-const Home: NextPage<IPageProps> = ({ techIcons }) => {
+const Home: NextPage<IPageProps> = ({ techIcons, projects }) => {
   const t = useTranslations("home");
 
   return (
@@ -114,7 +136,17 @@ const Home: NextPage<IPageProps> = ({ techIcons }) => {
         </S.TechIconsContainer>
       </S.TechContainer>
 
-      
+      <S.ProjectsContainer>
+        <S.SectionTitle>{t("project_title")}</S.SectionTitle>
+
+        <S.SectionSubTitle>{t("project_subtitle")}</S.SectionSubTitle>
+
+        <S.ReposContainer>
+          {projects.map((projectData) => (
+            <RepoCard key={projectData.id} cardData={projectData} />
+          ))}
+        </S.ReposContainer>
+      </S.ProjectsContainer>
     </S.Container>
   );
 };
